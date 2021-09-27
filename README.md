@@ -2,7 +2,7 @@
 
 The depth of directory trees is not bounded in some container platforms. This allows a maliicious container processes to create directory trees that, depending on platform and system resources, can exhaust available memory when traversing, making removal difficult without manual intervention.
 
-# Demo
+## Demo
 
 Create a pod that creates a very deep series of nested directories:
 
@@ -46,7 +46,7 @@ $ dmesg | grep -i killed
 On minikube, the cluster will become completely unresponsive.
 
 
-# Container cleanup
+## Container cleanup
 
 Most container runtimes are written in Go. The os.RemoveAll() function from the Go standard library has some additional memory overhead (when compared to coreutils' rm) when traversing very deep directories. 
 
@@ -54,7 +54,7 @@ https://github.com/golang/go/issues/47390
 
 Thus runtimes like CRI-O, which use this function to clean up containers, can struggle with removal of containers that have created very deep directories, repeatedly triggering OOM killer, potentially putting the system into an unstable state.
 
-# CRI-O (and podman, buildah etc)
+## CRI-O (and podman, buildah etc)
 
 This has been reported to CRI-O here:
 
@@ -64,22 +64,22 @@ Support for inode quotas a container's read/write layer (in xfs, the default fil
 
 https://github.com/containers/storage/pull/970
 
-# Docker
+## Docker
 
 Similarly impacted and reported to their security team.
 
 
-# Containerd
+## Containerd
 
 Similarly impacted and reported to their security team.
 
 
-# Kubernetes
+## Kubernetes
 
 Similarly impacted and reported to their security team.
 
 Kubernetes does not yet have controls to limit the number of inodes used by a container. This would appear the most viable approach to prevent hostile containers from creating directory trees of this size.
 
-# Acknowledgments
+## Acknowledgments
 
 This behaviour was observed after investigating the impact to container platforms of prior kernel CVE, CVE-2021-33909, discovered by the Qualys Research Team.
