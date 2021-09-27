@@ -64,21 +64,15 @@ Support for inode quotas a container's read/write layer (in xfs, the default fil
 
 https://github.com/containers/storage/pull/970
 
-## Docker
-
-Similarly impacted and reported to their security team.
-
-
-## Containerd
-
-Similarly impacted and reported to their security team.
-
-
 ## Kubernetes
 
-Similarly impacted and reported to their security team.
+Similarly impacted and reported to their security team. The Kubernetes SRC are comfortable with public fix for this issue to be pursued pubicly.
 
 Kubernetes does not yet have controls to limit the number of inodes used by a container. This would appear the most viable approach to prevent hostile containers from creating directory trees of this size.
+
+## Docker / Containerd
+
+Similarly impacted and privately reported to their security team.
 
 ## Acknowledgments
 
