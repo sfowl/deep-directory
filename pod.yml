@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: deep
+spec:
+  containers:
+    - name: deep
+      image: quay.io/sfowler/deep
