@@ -66,7 +66,7 @@ https://github.com/containers/storage/pull/970
 
 ## Kubernetes
 
-Similarly impacted and reported to their security team. The Kubernetes SRC are comfortable with public fix for this issue to be pursued pubicly.
+Similarly impacted and reported to their security team. The Kubernetes SRC are comfortable with a fix for this issue to be investigated and worked on in the open.
 
 Kubernetes does not yet have controls to limit the number of inodes used by a container. This would appear the most viable approach to prevent hostile containers from creating directory trees of this size.
 
