@@ -7,7 +7,7 @@ The depth of directory trees is not bounded in some container platforms. This al
 Create a pod that creates a very deep series of nested directories:
 
 ```
-$ kubectl create pod.yml
+$ kubectl create -f pod.yml
 ```
 
 Monitor logs for progress:
